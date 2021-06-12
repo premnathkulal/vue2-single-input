@@ -1,6 +1,6 @@
 {
   "name": "vue-single-input",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "dist/vue-single-input.ssr.js",
   "browser": "dist/vue-single-input.esm.js",
@@ -57,6 +57,7 @@
     "vue",
     "vueJS",
     "vue2",
-    "Single input box"
+    "Single input box",
+    "Vue Single input"
   ]
 }
