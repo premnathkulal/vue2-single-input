@@ -23,13 +23,13 @@ export default Vue.extend({
     <SingleInput
       v-model="fullMpin"
       formId="id"
-      :boxCount="4"
+      :boxCount="6"
       textColor="green"
-      borderColor="red"
+      borderColor="blue"
       textSize="2em"
-      :withBorder="false"
-      borderRadius="0%"
-      backgroundColor="none"
+      :withBorder="true"
+      borderRadius="10%"
+      backgroundColor="#0ffacf"
       type="text"
     />
   </div>
