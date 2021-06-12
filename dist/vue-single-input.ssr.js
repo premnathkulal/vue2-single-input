@@ -597,7 +597,16 @@ var SingleInput = (_dec = Prop({
 
   _createClass(SingleInput, [{
     key: "manageMpinInput",
-    value: function manageMpinInput(event) {
+    value: // @Prop({ default: "id", required: true }) formId!: string;
+    // @Prop({ default: 1 }) boxCount!: number;
+    // @Prop({ default: "blue" }) textColor!: number;
+    // @Prop({ default: "blue" }) borderColor!: number;
+    // @Prop({ default: "2em" }) textSize!: string;
+    // @Prop({ default: false }) withBorder!: boolean;
+    // @Prop({ default: "0%" }) borderRadius!: string;
+    // @Prop({ default: "0%" }) backgroundColor!: string;
+    // @Prop({ default: "text" }) type!: string;
+    function manageMpinInput(event) {
       var target = event.target;
 
       if (target.value == null || target.value == "") {
@@ -641,6 +650,22 @@ var SingleInput = (_dec = Prop({
           target.readOnly = true;
         }
       }
+    }
+  }, {
+    key: "isNumber",
+    value: function isNumber(evt) {
+      if (this.type === "number") {
+        evt = evt ? evt : window.event;
+        var charCode = evt.keyCode;
+
+        if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode !== 46) {
+          evt.preventDefault();
+        } else {
+          return true;
+        }
+      }
+
+      return true;
     }
   }, {
     key: "created",
@@ -849,7 +874,7 @@ var __vue_render__ = function __vue_render__() {
       fontSize: _vm.textSize,
       borderRadius: _vm.borderRadius,
       background: _vm.backgroundColor
-    }, null) + " data-v-6f6c003c>";
+    }, null) + " data-v-2ac68e14>";
   }))]);
 };
 
@@ -858,8 +883,8 @@ var __vue_staticRenderFns__ = [];
 
 var __vue_inject_styles__ = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-6f6c003c_0", {
-    source: ".mpin-container[data-v-6f6c003c]{display:flex;justify-content:center;align-items:center;width:100%;height:5rem}.mpin-container input[data-v-6f6c003c]{color:transparent;text-align:center;box-shadow:none;height:1em;outline:0;width:2.5rem;margin-right:1rem}.mpin-container input[data-v-6f6c003c]:last-child{margin-right:0}.mpin-container input[data-v-6f6c003c]:focus{border-width:4px!important}input[data-v-6f6c003c]::-webkit-inner-spin-button,input[data-v-6f6c003c]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}input[type=number][data-v-6f6c003c]{-moz-appearance:textfield}",
+  inject("data-v-2ac68e14_0", {
+    source: ".mpin-container[data-v-2ac68e14]{display:flex;justify-content:center;align-items:center;width:100%;height:5rem}.mpin-container input[data-v-2ac68e14]{color:transparent;text-align:center;box-shadow:none;height:1em;outline:0;width:2.5rem;margin-right:1rem}.mpin-container input[data-v-2ac68e14]:last-child{margin-right:0}.mpin-container input[data-v-2ac68e14]:focus{border-width:4px!important}input[data-v-2ac68e14]::-webkit-inner-spin-button,input[data-v-2ac68e14]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}input[type=number][data-v-2ac68e14]{-moz-appearance:textfield}",
     map: undefined,
     media: undefined
   });
@@ -867,10 +892,10 @@ var __vue_inject_styles__ = function __vue_inject_styles__(inject) {
 /* scoped */
 
 
-var __vue_scope_id__ = "data-v-6f6c003c";
+var __vue_scope_id__ = "data-v-2ac68e14";
 /* module identifier */
 
-var __vue_module_identifier__ = "data-v-6f6c003c";
+var __vue_module_identifier__ = "data-v-2ac68e14";
 /* functional template */
 
 var __vue_is_functional_template__ = false;

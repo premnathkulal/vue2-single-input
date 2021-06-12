@@ -35,25 +35,25 @@ export default class SingleInput extends Vue {
   border = "none";
   background = "none";
 
-  // @Prop({ default: "id", required: true }) formId: string = "";
-  // @Prop({ default: 1 }) boxCount: number = 0;
-  // @Prop({ default: "blue" }) textColor: number = 0;
-  // @Prop({ default: "blue" }) borderColor: number = 0;
-  // @Prop({ default: "2em" }) textSize: string = "";
-  // @Prop({ default: false }) withBorder: boolean = false;
-  // @Prop({ default: "0%" }) borderRadius: string = "";
-  // @Prop({ default: "0%" }) backgroundColor: string = "";
-  // @Prop({ default: "text" }) type: string = "";
+  @Prop({ default: "id", required: true }) formId: string = "";
+  @Prop({ default: 1 }) boxCount: number = 0;
+  @Prop({ default: "blue" }) textColor: number = 0;
+  @Prop({ default: "blue" }) borderColor: number = 0;
+  @Prop({ default: "2em" }) textSize: string = "";
+  @Prop({ default: false }) withBorder: boolean = false;
+  @Prop({ default: "0%" }) borderRadius: string = "";
+  @Prop({ default: "0%" }) backgroundColor: string = "";
+  @Prop({ default: "text" }) type: string = "";
 
-  @Prop({ default: "id", required: true }) formId!: string;
-  @Prop({ default: 1 }) boxCount!: number;
-  @Prop({ default: "blue" }) textColor!: number;
-  @Prop({ default: "blue" }) borderColor!: number;
-  @Prop({ default: "2em" }) textSize!: string;
-  @Prop({ default: false }) withBorder!: boolean;
-  @Prop({ default: "0%" }) borderRadius!: string;
-  @Prop({ default: "0%" }) backgroundColor!: string;
-  @Prop({ default: "text" }) type!: string;
+  // @Prop({ default: "id", required: true }) formId!: string;
+  // @Prop({ default: 1 }) boxCount!: number;
+  // @Prop({ default: "blue" }) textColor!: number;
+  // @Prop({ default: "blue" }) borderColor!: number;
+  // @Prop({ default: "2em" }) textSize!: string;
+  // @Prop({ default: false }) withBorder!: boolean;
+  // @Prop({ default: "0%" }) borderRadius!: string;
+  // @Prop({ default: "0%" }) backgroundColor!: string;
+  // @Prop({ default: "text" }) type!: string;
 
   manageMpinInput(event: KeyboardEvent): void {
     const target = event.target as HTMLInputElement;
