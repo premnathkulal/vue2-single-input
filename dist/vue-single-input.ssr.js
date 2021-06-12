@@ -1,4 +1,14 @@
-'use strict';var Vue=require('vue');function _interopDefaultLegacy(e){return e&&typeof e==='object'&&'default'in e?e:{'default':e}}var Vue__default=/*#__PURE__*/_interopDefaultLegacy(Vue);function _classCallCheck(instance, Constructor) {
+'use strict';
+var Vue = require('vue');
+
+function _interopDefaultLegacy(e) {
+  return e && typeof e === 'object' && 'default' in e ? e : {
+    'default': e
+  }
+}
+var Vue__default = /*#__PURE__*/ _interopDefaultLegacy(Vue);
+
+function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
   }
@@ -100,7 +110,7 @@ function _createSuper(Derived) {
 
   return function _createSuperInternal() {
     var Super = _getPrototypeOf(Derived),
-        result;
+      result;
 
     if (hasNativeReflectConstruct) {
       var NewTarget = _getPrototypeOf(this).constructor;
@@ -210,11 +220,12 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
   }
 
   return desc;
-}/**
-  * vue-class-component v7.2.6
-  * (c) 2015-present Evan You
-  * @license MIT
-  */
+}
+/**
+ * vue-class-component v7.2.6
+ * (c) 2015-present Evan You
+ * @license MIT
+ */
 
 function _typeof(obj) {
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
@@ -271,6 +282,7 @@ function _nonIterableSpread() {
 function reflectionIsSupported() {
   return typeof Reflect !== 'undefined' && Reflect.defineMetadata && Reflect.getOwnMetadataKeys;
 }
+
 function copyReflectionMetadata(to, from) {
   forwardMetadata(to, from);
   Object.getOwnPropertyNames(from.prototype).forEach(function (key) {
@@ -298,6 +310,7 @@ var fakeArray = {
   __proto__: []
 };
 var hasProto = fakeArray instanceof Array;
+
 function createDecorator(factory) {
   return function (target, key, index) {
     var Ctor = typeof target === 'function' ? target : target.constructor;
@@ -315,6 +328,7 @@ function createDecorator(factory) {
     });
   };
 }
+
 function isPrimitive(value) {
   var type = _typeof(value);
 
@@ -369,6 +383,7 @@ function collectDataFromConstructor(vm, Component) {
 
 var $internalHooks = ['data', 'beforeCreate', 'created', 'beforeMount', 'mounted', 'beforeDestroy', 'destroyed', 'beforeUpdate', 'updated', 'activated', 'deactivated', 'render', 'errorCaptured', 'serverPrefetch' // 2.6
 ];
+
 function componentFactory(Component) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   options.name = options.name || Component._componentTag || Component.name; // prototype props.
@@ -495,40 +510,46 @@ function Component(options) {
 
 Component.registerHooks = function registerHooks(keys) {
   $internalHooks.push.apply($internalHooks, _toConsumableArray(keys));
-};(undefined && undefined.__spreadArrays) || function () {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
-};/** @see {@link https://github.com/vuejs/vue-class-component/blob/master/src/reflect.ts} */
+};
+(undefined && undefined.__spreadArrays) || function () {
+  for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+  for (var r = Array(s), k = 0, i = 0; i < il; i++)
+    for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+      r[k] = a[j];
+  return r;
+}; /** @see {@link https://github.com/vuejs/vue-class-component/blob/master/src/reflect.ts} */
 var reflectMetadataIsSupported = typeof Reflect !== 'undefined' && typeof Reflect.getMetadata !== 'undefined';
+
 function applyMetadata(options, target, key) {
-    if (reflectMetadataIsSupported) {
-        if (!Array.isArray(options) &&
-            typeof options !== 'function' &&
-            !options.hasOwnProperty('type') &&
-            typeof options.type === 'undefined') {
-            var type = Reflect.getMetadata('design:type', target, key);
-            if (type !== Object) {
-                options.type = type;
-            }
-        }
+  if (reflectMetadataIsSupported) {
+    if (!Array.isArray(options) &&
+      typeof options !== 'function' &&
+      !options.hasOwnProperty('type') &&
+      typeof options.type === 'undefined') {
+      var type = Reflect.getMetadata('design:type', target, key);
+      if (type !== Object) {
+        options.type = type;
+      }
     }
-}/**
+  }
+}
+/**
  * decorator of a prop
  * @param  options the options for the prop
  * @return PropertyDecorator | void
  */
 function Prop(options) {
-    if (options === void 0) { options = {}; }
-    return function (target, key) {
-        applyMetadata(options, target, key);
-        createDecorator(function (componentOptions, k) {
-            (componentOptions.props || (componentOptions.props = {}))[k] = options;
-        })(target, key);
-    };
-}var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9;
+  if (options === void 0) {
+    options = {};
+  }
+  return function (target, key) {
+    applyMetadata(options, target, key);
+    createDecorator(function (componentOptions, k) {
+      (componentOptions.props || (componentOptions.props = {}))[k] = options;
+    })(target, key);
+  };
+}
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9;
 var SingleInput = (_dec = Prop({
   default: "id",
   required: true
@@ -548,7 +569,7 @@ var SingleInput = (_dec = Prop({
   default: "0%"
 }), _dec9 = Prop({
   default: "text"
-}), Component(_class = (_class2 = /*#__PURE__*/function (_Vue) {
+}), Component(_class = (_class2 = /*#__PURE__*/ function (_Vue) {
   _inherits(SingleInput, _Vue);
 
   var _super = _createSuper(SingleInput);
@@ -574,61 +595,43 @@ var SingleInput = (_dec = Prop({
 
     _defineProperty$1(_assertThisInitialized(_this), "background", "none");
 
-    _initializerDefineProperty(_assertThisInitialized(_this), "formId", _descriptor, _assertThisInitialized(_this));
-
-    _initializerDefineProperty(_assertThisInitialized(_this), "boxCount", _descriptor2, _assertThisInitialized(_this));
-
-    _initializerDefineProperty(_assertThisInitialized(_this), "textColor", _descriptor3, _assertThisInitialized(_this));
-
-    _initializerDefineProperty(_assertThisInitialized(_this), "borderColor", _descriptor4, _assertThisInitialized(_this));
-
-    _initializerDefineProperty(_assertThisInitialized(_this), "textSize", _descriptor5, _assertThisInitialized(_this));
-
-    _initializerDefineProperty(_assertThisInitialized(_this), "withBorder", _descriptor6, _assertThisInitialized(_this));
-
-    _initializerDefineProperty(_assertThisInitialized(_this), "borderRadius", _descriptor7, _assertThisInitialized(_this));
-
-    _initializerDefineProperty(_assertThisInitialized(_this), "backgroundColor", _descriptor8, _assertThisInitialized(_this));
-
-    _initializerDefineProperty(_assertThisInitialized(_this), "type", _descriptor9, _assertThisInitialized(_this));
-
     return _this;
   }
 
   _createClass(SingleInput, [{
     key: "manageMpinInput",
     value: // @Prop({ default: "id", required: true }) formId!: string;
-    // @Prop({ default: 1 }) boxCount!: number;
-    // @Prop({ default: "blue" }) textColor!: number;
-    // @Prop({ default: "blue" }) borderColor!: number;
-    // @Prop({ default: "2em" }) textSize!: string;
-    // @Prop({ default: false }) withBorder!: boolean;
-    // @Prop({ default: "0%" }) borderRadius!: string;
-    // @Prop({ default: "0%" }) backgroundColor!: string;
-    // @Prop({ default: "text" }) type!: string;
-    function manageMpinInput(event) {
-      var target = event.target;
+      // @Prop({ default: 1 }) boxCount!: number;
+      // @Prop({ default: "blue" }) textColor!: number;
+      // @Prop({ default: "blue" }) borderColor!: number;
+      // @Prop({ default: "2em" }) textSize!: string;
+      // @Prop({ default: false }) withBorder!: boolean;
+      // @Prop({ default: "0%" }) borderRadius!: string;
+      // @Prop({ default: "0%" }) backgroundColor!: string;
+      // @Prop({ default: "text" }) type!: string;
+      function manageMpinInput(event) {
+        var target = event.target;
 
-      if (target.value == null || target.value == "") {
-        this.fullMpin.pop();
+        if (target.value == null || target.value == "") {
+          this.fullMpin.pop();
 
-        if (this.fullMpin.length) {
-          target.readOnly = true;
-          this.foucusOnSiblingInput(target.previousSibling);
+          if (this.fullMpin.length) {
+            target.readOnly = true;
+            this.foucusOnSiblingInput(target.previousSibling);
+          }
+        } else {
+          var digit = target.value[target.value.length - 1];
+          target.value = digit;
+          this.fullMpin[+target.id.slice(-1) - 1] = target.value;
+
+          if (this.fullMpin.length < this.boxCount) {
+            target.readOnly = true;
+            this.foucusOnSiblingInput(target.nextSibling);
+          }
         }
-      } else {
-        var digit = target.value[target.value.length - 1];
-        target.value = digit;
-        this.fullMpin[+target.id.slice(-1) - 1] = target.value;
 
-        if (this.fullMpin.length < this.boxCount) {
-          target.readOnly = true;
-          this.foucusOnSiblingInput(target.nextSibling);
-        }
+        this.$emit("input", this.fullMpin.join(""));
       }
-
-      this.$emit("input", this.fullMpin.join(""));
-    }
   }, {
     key: "foucusOnSiblingInput",
     value: function foucusOnSiblingInput(element) {
@@ -740,120 +743,127 @@ var SingleInput = (_dec = Prop({
   initializer: function initializer() {
     return "";
   }
-})), _class2)) || _class);function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-    if (typeof shadowMode !== 'boolean') {
-        createInjectorSSR = createInjector;
-        createInjector = shadowMode;
-        shadowMode = false;
+})), _class2)) || _class);
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */ , shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+  if (typeof shadowMode !== 'boolean') {
+    createInjectorSSR = createInjector;
+    createInjector = shadowMode;
+    shadowMode = false;
+  }
+  // Vue.extend constructor export interop.
+  const options = typeof script === 'function' ? script.options : script;
+  // render functions
+  if (template && template.render) {
+    options.render = template.render;
+    options.staticRenderFns = template.staticRenderFns;
+    options._compiled = true;
+    // functional template
+    if (isFunctionalTemplate) {
+      options.functional = true;
     }
-    // Vue.extend constructor export interop.
-    const options = typeof script === 'function' ? script.options : script;
-    // render functions
-    if (template && template.render) {
-        options.render = template.render;
-        options.staticRenderFns = template.staticRenderFns;
-        options._compiled = true;
-        // functional template
-        if (isFunctionalTemplate) {
-            options.functional = true;
-        }
-    }
-    // scopedId
-    if (scopeId) {
-        options._scopeId = scopeId;
-    }
-    let hook;
-    if (moduleIdentifier) {
-        // server build
-        hook = function (context) {
-            // 2.3 injection
-            context =
-                context || // cached call
-                    (this.$vnode && this.$vnode.ssrContext) || // stateful
-                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
-            // 2.2 with runInNewContext: true
-            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-                context = __VUE_SSR_CONTEXT__;
-            }
-            // inject component styles
-            if (style) {
-                style.call(this, createInjectorSSR(context));
-            }
-            // register component module identifier for async chunk inference
-            if (context && context._registeredComponents) {
-                context._registeredComponents.add(moduleIdentifier);
-            }
-        };
-        // used by ssr in case component is cached and beforeCreate
-        // never gets called
-        options._ssrRegister = hook;
-    }
-    else if (style) {
-        hook = shadowMode
-            ? function (context) {
-                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
-            }
-            : function (context) {
-                style.call(this, createInjector(context));
-            };
-    }
-    if (hook) {
-        if (options.functional) {
-            // register for functional component in vue file
-            const originalRender = options.render;
-            options.render = function renderWithStyleInjection(h, context) {
-                hook.call(context);
-                return originalRender(h, context);
-            };
-        }
-        else {
-            // inject component registration as beforeCreate hook
-            const existing = options.beforeCreate;
-            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
-        }
-    }
-    return script;
-}function createInjectorSSR(context) {
-    if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+  }
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId;
+  }
+  let hook;
+  if (moduleIdentifier) {
+    // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
         context = __VUE_SSR_CONTEXT__;
+      }
+      // inject component styles
+      if (style) {
+        style.call(this, createInjectorSSR(context));
+      }
+      // register component module identifier for async chunk inference
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier);
+      }
+    };
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook;
+  } else if (style) {
+    hook = shadowMode ?
+      function (context) {
+        style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+      } :
+      function (context) {
+        style.call(this, createInjector(context));
+      };
+  }
+  if (hook) {
+    if (options.functional) {
+      // register for functional component in vue file
+      const originalRender = options.render;
+      options.render = function renderWithStyleInjection(h, context) {
+        hook.call(context);
+        return originalRender(h, context);
+      };
+    } else {
+      // inject component registration as beforeCreate hook
+      const existing = options.beforeCreate;
+      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
     }
-    if (!context)
-        return () => { };
-    if (!('styles' in context)) {
-        context._styles = context._styles || {};
-        Object.defineProperty(context, 'styles', {
-            enumerable: true,
-            get: () => context._renderStyles(context._styles)
-        });
-        context._renderStyles = context._renderStyles || renderStyles;
-    }
-    return (id, style) => addStyle(id, style, context);
+  }
+  return script;
 }
+
+function createInjectorSSR(context) {
+  if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+    context = __VUE_SSR_CONTEXT__;
+  }
+  if (!context)
+    return () => {};
+  if (!('styles' in context)) {
+    context._styles = context._styles || {};
+    Object.defineProperty(context, 'styles', {
+      enumerable: true,
+      get: () => context._renderStyles(context._styles)
+    });
+    context._renderStyles = context._renderStyles || renderStyles;
+  }
+  return (id, style) => addStyle(id, style, context);
+}
+
 function addStyle(id, css, context) {
-    const group = css.media || 'default' ;
-    const style = context._styles[group] || (context._styles[group] = { ids: [], css: '' });
-    if (!style.ids.includes(id)) {
-        style.media = css.media;
-        style.ids.push(id);
-        let code = css.source;
-        style.css += code + '\n';
-    }
+  const group = css.media || 'default';
+  const style = context._styles[group] || (context._styles[group] = {
+    ids: [],
+    css: ''
+  });
+  if (!style.ids.includes(id)) {
+    style.media = css.media;
+    style.ids.push(id);
+    let code = css.source;
+    style.css += code + '\n';
+  }
 }
+
 function renderStyles(styles) {
-    let css = '';
-    for (const key in styles) {
-        const style = styles[key];
-        css +=
-            '<style data-vue-ssr-id="' +
-                Array.from(style.ids).join(' ') +
-                '"' +
-                (style.media ? ' media="' + style.media + '"' : '') +
-                '>' +
-                style.css +
-                '</style>';
-    }
-    return css;
-}/* script */
+  let css = '';
+  for (const key in styles) {
+    const style = styles[key];
+    css +=
+      '<style data-vue-ssr-id="' +
+      Array.from(style.ids).join(' ') +
+      '"' +
+      (style.media ? ' media="' + style.media + '"' : '') +
+      '>' +
+      style.css +
+      '</style>';
+  }
+  return css;
+} /* script */
 var __vue_script__ = SingleInput;
 /* template */
 
@@ -901,29 +911,39 @@ var __vue_module_identifier__ = "data-v-2ac68e14";
 var __vue_is_functional_template__ = false;
 /* style inject shadow dom */
 
-var __vue_component__ = /*#__PURE__*/normalizeComponent({
+var __vue_component__ = /*#__PURE__*/ normalizeComponent({
   render: __vue_render__,
   staticRenderFns: __vue_staticRenderFns__
-}, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, false, undefined, createInjectorSSR, undefined);/* eslint-disable import/prefer-default-export */var components$1=/*#__PURE__*/Object.freeze({__proto__:null,SingleInput: __vue_component__});var install = function installVueSingleInput(Vue) {
+}, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, false, undefined, createInjectorSSR, undefined); /* eslint-disable import/prefer-default-export */
+var components$1 = /*#__PURE__*/ Object.freeze({
+  __proto__: null,
+  SingleInput: __vue_component__
+});
+var install = function installVueSingleInput(Vue) {
   Object.entries(components$1).forEach(function (_ref) {
     var _ref2 = _slicedToArray(_ref, 2),
-        componentName = _ref2[0],
-        component = _ref2[1];
+      componentName = _ref2[0],
+      component = _ref2[1];
 
     Vue.component(componentName, component);
   });
 }; // Create module definition for Vue.use()
-var components=/*#__PURE__*/Object.freeze({__proto__:null,'default': install,SingleInput: __vue_component__});// only expose one global var, with component exports exposed as properties of
+var components = /*#__PURE__*/ Object.freeze({
+  __proto__: null,
+  'default': install,
+  SingleInput: __vue_component__
+}); // only expose one global var, with component exports exposed as properties of
 // that global var (eg. plugin.component)
 
 Object.entries(components).forEach(function (_ref) {
   var _ref2 = _slicedToArray(_ref, 2),
-      componentName = _ref2[0],
-      component = _ref2[1];
+    componentName = _ref2[0],
+    component = _ref2[1];
 
   if (componentName !== 'default') {
     var key = componentName;
     var val = component;
     install[key] = val;
   }
-});module.exports=install;
+});
+module.exports = install;
