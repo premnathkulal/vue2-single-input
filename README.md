@@ -2,7 +2,7 @@
 
 Vue single input takes only one input in a box used for taking OTP, MPIN inputs.
 
-## Installing
+## Installation
 
 Using npm:
 
