@@ -20,7 +20,6 @@ export default Vue.extend({
 
 <template>
   <div id="app">
-    {{ fullMpin }}
     <SingleInput
       v-model="fullMpin"
       formId="id"
@@ -31,6 +30,7 @@ export default Vue.extend({
       :withBorder="false"
       borderRadius="0%"
       backgroundColor="none"
+      type="text"
     />
   </div>
 </template>

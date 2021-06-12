@@ -18,6 +18,7 @@
         inputmode="numeric"
         @input="manageMpinInput"
         @keyup.backspace="backspaceEvent"
+        @keypress="isNumber($event)"
       />
     </template>
   </div>
@@ -29,12 +30,20 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 @Component
 export default class SingleInput extends Vue {
   fullMpin: string[] = [];
-  showMpin = false;
-  type = "text";
   textShadow = "0 0 0 blue";
   borderBottom = "2px solid blue";
   border = "none";
   background = "none";
+
+  // @Prop({ default: "id", required: true }) formId: string = "";
+  // @Prop({ default: 1 }) boxCount: number = 0;
+  // @Prop({ default: "blue" }) textColor: number = 0;
+  // @Prop({ default: "blue" }) borderColor: number = 0;
+  // @Prop({ default: "2em" }) textSize: string = "";
+  // @Prop({ default: false }) withBorder: boolean = false;
+  // @Prop({ default: "0%" }) borderRadius: string = "";
+  // @Prop({ default: "0%" }) backgroundColor: string = "";
+  // @Prop({ default: "text" }) type: string = "";
 
   @Prop({ default: "id", required: true }) formId!: string;
   @Prop({ default: 1 }) boxCount!: number;
@@ -42,8 +51,9 @@ export default class SingleInput extends Vue {
   @Prop({ default: "blue" }) borderColor!: number;
   @Prop({ default: "2em" }) textSize!: string;
   @Prop({ default: false }) withBorder!: boolean;
-  @Prop({ default: "0%" }) borderRadius!: boolean;
-  @Prop({ default: "0%" }) backgroundColor!: boolean;
+  @Prop({ default: "0%" }) borderRadius!: string;
+  @Prop({ default: "0%" }) backgroundColor!: string;
+  @Prop({ default: "text" }) type!: string;
 
   manageMpinInput(event: KeyboardEvent): void {
     const target = event.target as HTMLInputElement;
@@ -82,6 +92,23 @@ export default class SingleInput extends Vue {
         target.readOnly = true;
       }
     }
+  }
+
+  isNumber(evt: KeyboardEvent) {
+    if (this.type === "number") {
+      evt = (evt ? evt : window.event) as KeyboardEvent;
+      const charCode = evt.keyCode;
+      if (
+        charCode > 31 &&
+        (charCode < 48 || charCode > 57) &&
+        charCode !== 46
+      ) {
+        evt.preventDefault();
+      } else {
+        return true;
+      }
+    }
+    return true;
   }
 
   created() {
