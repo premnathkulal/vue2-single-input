@@ -55,7 +55,13 @@ Than use anywhere in template
 />
 ```
 
-### output
+### Output
+
+![alt text](https://drive.google.com/uc?id=1AXP4kL1DBL7kjDsv0RtYyDQ43K9-ILnc)
+![alt text](https://drive.google.com/uc?id=19lnrdc30raVbTpZh8y2nH7nkMkTLb3VJ)
+![alt text](https://drive.google.com/uc?id=11ndSN0w6T_0dTSBaFOBJDcpXWKTUvYo-)
+![alt text](https://drive.google.com/uc?id=1KJgM26YMTN36EU2w-MkPcKw2kMqvNYmK)
+![alt text](https://drive.google.com/uc?id=1OT87T1rrOUrlcwEI_wonoexQG-wYYL4C)
 
 ## Options
 
@@ -83,5 +89,3 @@ Than use anywhere in template
 - **type** : Ex: number, password, text
 
 ## License
-
-![alt text](https://drive.google.com/file/d/1OT87T1rrOUrlcwEI_wonoexQG-wYYL4C/view?usp=sharing)
